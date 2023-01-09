@@ -14,8 +14,12 @@
     <bean id="car" class="com.percipio.aop.vehicles.Car"></bean>
     <bean id="log" class="com.percipio.aop.aspects.Log"></bean>
     <aop:config>
+        <!--Creamos esto para no tener que referenciar el pointcut cada vez que le agregamos un aspecto-->
+        <aop:pointcut id="driveCar" expression="execution(void com.percipio.aop.vehicles.Car.drive())"/>
+
+        <!--Creamos el tag del aspecto para agregarle propiedades como before, para que se realize una tarea antes de que se ejecute un metodo-->
         <aop:aspect id="loggerAspect" ref="log">
-            <aop:before method="vehicleAboutToMove" pointcut="execution(void com.percipio.aop.vehicles.Car.drive())"/>
+            <aop:before method="vehicleAboutToMove" pointcut-ref="driveCar"/>
         </aop:aspect>
     </aop:config>
 </beans>
