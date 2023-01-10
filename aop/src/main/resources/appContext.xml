@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+    <!--Esto es para que funcione con anotaciones-->
+    <!--context:annotation-config></context:annotation-config-->
+
+    <!--bean id="car" class="com.percipio.aop.vehicles.Car"></bean-->
+
+    <!--Se escanean todos los componentes (en este caso aspects) para ser utilizados en anotaciones-->
+    <!--aop:aspectj-autoproxy/-->
+    <!--context:component-scan base-package="com.percipio.aop.aspects"></context:component-scan-->
+
+    <!--<bean id="log" class="com.percipio.aop.aspects.Log"></bean>
+    <aop:config>
+        Creamos esto para no tener que referenciar el pointcut cada vez que le agregamos un aspecto
+        <aop:pointcut id="driveCar" expression="execution(void com.percipio.aop.vehicles.Car.drive())"/>
+        <aop:pointcut id="stopCar" expression="execution(void com.percipio.aop.vehicles.Car.stop())"/>
+
+        Creamos el tag del aspecto para agregarle propiedades como before, para que se realize una tarea antes de que se ejecute un metodo
+        <aop:aspect id="loggerAspect" ref="log">
+            <aop:before method="vehicleAboutToMove" pointcut-ref="driveCar"/>
+            <aop:before method="vehicleAboutToStop" pointcut-ref="stopCar"/>
+        </aop:aspect>
+    </aop:config>-->
+</beans>
